@@ -11,3 +11,9 @@ mod gfx;
 pub use core::Engine;
 
 
+pub fn init() -> Result<Engine, String> {
+    let mut eng = Engine::new();
+    try!(eng.init());
+    Ok(eng)
+}
+
