@@ -1,0 +1,13 @@
+[package]
+name = "wd"
+version = "0.1.0"
+authors = ["Francois Hamel"]
+build = "build.rs"
+
+[dependencies]
+log = "0.3.6"
+
+[dependencies.glfw]
+version = "0.11.0"
+default-features = false
+features = ["vulkan"]
