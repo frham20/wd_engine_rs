@@ -45,7 +45,7 @@ impl Timer {
     #[inline]
     pub fn stop(&mut self) -> u64 {
         let stop_ticks = inner::query_performance_counter();
-        self.ticks = self.ticks - stop_ticks;
+        self.ticks = stop_ticks - self.ticks;
 
         //transform to microseconds (us)
         self.ticks *= 1_000_000;
