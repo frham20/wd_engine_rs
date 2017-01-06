@@ -1,3 +1,5 @@
+use std::fmt;
+
 mod inner {
     use kernel32;
 
@@ -36,6 +38,11 @@ impl Timer {
             inner::ticks_frequency = inner::query_performance_frequency();
         }
     }
+
+    pub fn new() -> Timer {
+        let t : Timer = Default::default();
+        t
+    }
     
     #[inline]
     pub fn start(&mut self) {
@@ -57,22 +64,29 @@ impl Timer {
     }
 
     #[inline]
-    pub fn get_s(&mut self) -> f64 {
+    pub fn get_s(&self) -> f64 {
         (self.ticks as f64) * inner::US_TO_S
     }
 
     #[inline]
-    pub fn get_ms(&mut self) -> f64 {
+    pub fn get_ms(&self) -> f64 {
         (self.ticks as f64) * inner::US_TO_MS
     }
 
     #[inline]
-    pub fn get_us(&mut self) -> u64 {
+    pub fn get_us(&self) -> u64 {
         self.ticks
     }    
 }
 
-/*
-impl Display for Timer {
+impl fmt::Debug for Timer {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Timer {{\n\t{} us\n\t{} ms\n\t{} s\n}}", self.get_us(), self.get_ms(), self.get_s())
+    }
+}
 
-}*/
+impl fmt::Display for Timer {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:.4} ms", self.get_ms())
+    }
+}
