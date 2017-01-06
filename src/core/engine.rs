@@ -1,4 +1,5 @@
 use gfx;
+use core::Timer;
 
 pub struct Engine {
     gfx: gfx::Instance,
@@ -10,6 +11,9 @@ impl Engine {
     }
 
     pub fn init(&mut self) -> Result<(), String> {
+
+        Timer::init();
+
         try!(self.gfx.init());
         Ok(())
     }
