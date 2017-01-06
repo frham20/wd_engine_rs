@@ -1,8 +1,6 @@
-## WD Engine
+## WD Engine in Rust
 
-This is a test engine to learn the Rust language and the Vulkan API
+This is a test engine to learn the Rust language
 
 [Rust Homepage](https://www.rust-lang.org/en-US/)
-
-[Vulkan Homepage](https://www.khronos.org/vulkan/)
 
