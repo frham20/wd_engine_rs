@@ -1,7 +1,11 @@
 //crates
 extern crate glfw;
 extern crate log;
+
+#[cfg(target_os = "windows")]
 extern crate kernel32;
+#[cfg(target_os = "windows")]
+extern crate user32;
 
 //standard library imports
 

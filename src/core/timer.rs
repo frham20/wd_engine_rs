@@ -40,8 +40,7 @@ impl Timer {
     }
 
     pub fn new() -> Timer {
-        let t : Timer = Default::default();
-        t
+        Default::default()
     }
     
     #[inline]
@@ -81,7 +80,10 @@ impl Timer {
 
 impl fmt::Debug for Timer {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Timer {{\n\t{} us\n\t{} ms\n\t{} s\n}}", self.get_us(), self.get_ms(), self.get_s())
+        write!(f, "Timer {{\n\t{} us\n\t{} ms\n\t{} s\n}}", 
+            self.get_us(), 
+            self.get_ms(), 
+            self.get_s())
     }
 }
 
